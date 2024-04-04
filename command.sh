@@ -83,3 +83,6 @@ module.exports = {
 };
 EOF
 
+# Webpack development server
+./bin/webpacker-dev-server
+
