@@ -135,3 +135,15 @@ yarn add react-router-dom
 # add files
 mkdir -p ./app/javascript/src/
 touch ./app/javascript/src/App.jsx
+
+# add axios
+yarn add axios
+
+# add axios files
+mkdir -p ./app/javascript/src/apis
+touch ./app/javascript/src/apis/axios.js
+
+# add js logger
+mkdir -p ./app/javascript/src/common
+touch ./app/javascript/src/common/logger.js
+
