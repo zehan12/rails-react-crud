@@ -191,3 +191,15 @@ done
 cat << 'EOF' > .eslint-rules/custom.js
 module.exports = {};
 EOF
+
+# add prettier and plugin
+yarn add -D prettier
+yarn add -D prettier-plugin-tailwindcss
+
+# add config
+curl -o ".prettierrc.js" "https://raw.githubusercontent.com/bigbinary/wheel/main/.prettierrc.js"
+
+# formater
+npx prettier --write "./app/javascript/src/**/*.{js,jsx,json}"
+npx eslint --fix "./app/javascript/src/**/*.{js,jsx,json}"
+
