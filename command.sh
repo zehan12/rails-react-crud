@@ -35,3 +35,21 @@ yarn add @svgr/webpack@^8.1.0 babel-plugin-dynamic-import-node@^2.3.3 babel-plug
 
 # config babel from wheel repo
 curl -o "babel.config.js" "https://raw.githubusercontent.com/bigbinary/wheel/main/babel.config.js"
+
+# customizing Shakapacker configuration from wheel repo
+raw_base_url="https://raw.githubusercontent.com/bigbinary/wheel/main"
+declare -a configs=(
+  "config/webpack/environment.js"
+  "config/webpack/development.js"
+  "config/webpack/production.js"
+  "config/webpack/test.js"
+  "config/webpack/rules.js"
+  "config/webpack/webpack.config.js"
+  "config/webpack/helpers/customize-default-rules.js"
+  "config/webpack/helpers/utils.js"
+)
+for config in "${configs[@]}"; do
+  echo "Downloading ${config}..."
+  curl --create-dirs -o "${config}" "${raw_base_url}/${config}"
+done
+
