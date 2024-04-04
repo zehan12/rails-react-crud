@@ -156,4 +156,38 @@ curl -o ".rubocop.yml" "https://raw.githubusercontent.com/bigbinary/wheel/main/.
 # execute rubocop
 bundle exec rubocop
 
+# add eslint
+yarn add -D eslint \
+@babel/eslint-parser \
+@babel/preset-react \
+eslint-plugin-react-hooks \
+eslint-plugin-import \
+eslint-config-prettier \
+eslint-plugin-prettier \
+eslint-plugin-json \
+eslint-plugin-react \
+eslint-plugin-promise \
+eslint-plugin-jam3 \
+eslint-plugin-cypress \
+eslint-plugin-unused-imports
 
+# add config
+raw_base_url="https://raw.githubusercontent.com/bigbinary/wheel/main"
+declare -a configs=(
+  ".eslintrc.js"
+  ".eslintignore"
+  ".eslint-rules/helpers/index.js"
+  ".eslint-rules/imports/enforced.js"
+  ".eslint-rules/imports/order.js"
+  ".eslint-rules/globals.js"
+  ".eslint-rules/overrides.js"
+  ".eslint-rules/promise.js"
+  ".eslint-rules/react.js"
+)
+for config in "${configs[@]}"; do
+  echo "Downloading ${config}..."
+  curl --create-dirs -o "${config}" "${raw_base_url}/${config}"
+done
+cat << 'EOF' > .eslint-rules/custom.js
+module.exports = {};
+EOF
