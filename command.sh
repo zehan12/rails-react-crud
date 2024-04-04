@@ -147,3 +147,5 @@ touch ./app/javascript/src/apis/axios.js
 mkdir -p ./app/javascript/src/common
 touch ./app/javascript/src/common/logger.js
 
+# add logger from wheel
+curl -o "./app/javascript/src/common/logger.js" "https://raw.githubusercontent.com/bigbinary/wheel/main/app/javascript/src/common/logger.js"
