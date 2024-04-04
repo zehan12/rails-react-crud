@@ -149,3 +149,11 @@ touch ./app/javascript/src/common/logger.js
 
 # add logger from wheel
 curl -o "./app/javascript/src/common/logger.js" "https://raw.githubusercontent.com/bigbinary/wheel/main/app/javascript/src/common/logger.js"
+
+# add the config
+curl -o ".rubocop.yml" "https://raw.githubusercontent.com/bigbinary/wheel/main/.rubocop.yml"
+
+# execute rubocop
+bundle exec rubocop
+
+
