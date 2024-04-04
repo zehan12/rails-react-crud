@@ -19,3 +19,6 @@ bin/rails webpacker:install
 
 # upgrade webpack
 yarn upgrade webpack-dev-server@4.13.1
+
+# config webpacker from wheel repo
+curl -o "config/webpacker.yml" "https://raw.githubusercontent.com/bigbinary/wheel/main/config/webpacker.yml"
