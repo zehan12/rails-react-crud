@@ -90,3 +90,41 @@ EOF
 
 # add tailwind css
 yarn add tailwindcss@^3.4.1
+
+# update folder
+mkdir -p ./app/javascript/stylesheets/
+
+# init tailwind
+npx tailwindcss init -p
+
+# add scss file
+touch ./app/javascript/stylesheets/application.scss # creates the file
+cat <<EOT >> ./app/javascript/stylesheets/application.scss
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+EOT
+
+# update js pack
+sed -n -i'.bak' -e 'p;8a\
+import \"../stylesheets/application.scss\"' "app/javascript/packs/application.js"
+rm -f "app/javascript/packs/application.js.bak"
+
+# update postcss.config.js
+cat <<EOT > ./postcss.config.js
+module.exports = {
+  plugins: [
+    require("postcss-import"),
+    require("postcss-flexbugs-fixes"),
+    require("postcss-preset-env")({
+      autoprefixer: {
+        flexbox: "no-2009",
+      },
+      stage: 3,
+    }),
+    require("tailwindcss")("./tailwind.config.js"),
+    require("autoprefixer"),
+  ],
+};
+EOT
+
