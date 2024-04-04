@@ -203,3 +203,8 @@ curl -o ".prettierrc.js" "https://raw.githubusercontent.com/bigbinary/wheel/main
 npx prettier --write "./app/javascript/src/**/*.{js,jsx,json}"
 npx eslint --fix "./app/javascript/src/**/*.{js,jsx,json}"
 
+# 
+curl -o ".editorconfig" "https://raw.githubusercontent.com/bigbinary/wheel/main/.editorconfig"
+
+# 
+bundle exec rubocop -A Gemfile
