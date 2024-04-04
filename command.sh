@@ -128,3 +128,10 @@ module.exports = {
 };
 EOT
 
+# *** React js ***
+# add react router
+yarn add react-router-dom
+
+# add files
+mkdir -p ./app/javascript/src/
+touch ./app/javascript/src/App.jsx
