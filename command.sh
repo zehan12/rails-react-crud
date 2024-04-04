@@ -53,3 +53,33 @@ for config in "${configs[@]}"; do
   curl --create-dirs -o "${config}" "${raw_base_url}/${config}"
 done
 
+# handle alias
+touch config/webpack/resolve.js
+cat << EOF > config/webpack/resolve.js
+const path = require("path");
+
+const absolutePath = basePath =>
+  path.resolve(__dirname, "..", "..", \`app/javascript/\${basePath}\`);
+
+module.exports = {
+  alias: {
+  },
+  extensions: [
+    ".ts",
+    ".mjs",
+    ".js",
+    ".sass",
+    ".scss",
+    ".css",
+    ".module.sass",
+    ".module.scss",
+    ".module.css",
+    ".png",
+    ".svg",
+    ".gif",
+    ".jpeg",
+    ".jpg",
+  ],
+};
+EOF
+
