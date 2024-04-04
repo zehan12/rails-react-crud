@@ -86,3 +86,7 @@ EOF
 # Webpack development server
 ./bin/webpacker-dev-server
 
+# *** Tailwind ***
+
+# add tailwind css
+yarn add tailwindcss@^3.4.1
