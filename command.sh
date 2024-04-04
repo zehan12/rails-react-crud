@@ -13,3 +13,9 @@ add yarn
 rm -rf app/javascript
 
 # add gem "shakapacker", "~> 6.6.0"
+
+# install webpack
+bin/rails webpacker:install
+
+# upgrade webpack
+yarn upgrade webpack-dev-server@4.13.1
